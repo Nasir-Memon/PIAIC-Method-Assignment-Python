@@ -1,150 +1,507 @@
-In Python, "methods" refer to functions that are associated with an object. Methods are similar to functions, but they are called on an object and have access to the object’s attributes. Here are some common Python methods along with examples:
+Here is a list of Python's 47 built-in functions, each with a brief example:
 
-### 1. **String Methods**
-- **`str.upper()`**: Converts all characters of a string to uppercase.
-    ```python
-    text = "hello"
-    print(text.upper())  # Output: "HELLO"
-    ```
-- **`str.lower()`**: Converts all characters of a string to lowercase.
-    ```python
-    text = "HELLO"
-    print(text.lower())  # Output: "hello"
-    ```
-- **`str.strip()`**: Removes any leading and trailing whitespace.
-    ```python
-    text = "   hello   "
-    print(text.strip())  # Output: "hello"
-    ```
-- **`str.replace(old, new)`**: Replaces all occurrences of a substring with another substring.
-    ```python
-    text = "hello world"
-    print(text.replace("world", "Python"))  # Output: "hello Python"
-    ```
-- **`str.split(separator)`**: Splits a string into a list where each word is a list item.
-    ```python
-    text = "hello world"
-    print(text.split())  # Output: ['hello', 'world']
-    ```
+### 1. **`abs()`**
+Returns the absolute value of a number.
+```python
+print(abs(-5))  # Output: 5
+```
 
-### 2. **List Methods**
-- **`list.append(item)`**: Adds an item to the end of the list.
-    ```python
-    fruits = ["apple", "banana"]
-    fruits.append("cherry")
-    print(fruits)  # Output: ['apple', 'banana', 'cherry']
-    ```
-- **`list.remove(item)`**: Removes the first occurrence of an item from the list.
-    ```python
-    fruits = ["apple", "banana", "cherry"]
-    fruits.remove("banana")
-    print(fruits)  # Output: ['apple', 'cherry']
-    ```
-- **`list.pop(index)`**: Removes and returns the item at the given index. If no index is specified, it removes the last item.
-    ```python
-    fruits = ["apple", "banana", "cherry"]
-    popped_item = fruits.pop()
-    print(popped_item)  # Output: "cherry"
-    print(fruits)  # Output: ['apple', 'banana']
-    ```
-- **`list.sort()`**: Sorts the items in ascending order.
-    ```python
-    numbers = [3, 1, 4, 1, 5]
-    numbers.sort()
-    print(numbers)  # Output: [1, 1, 3, 4, 5]
-    ```
-- **`list.reverse()`**: Reverses the order of the list items.
-    ```python
-    numbers = [3, 1, 4, 1, 5]
-    numbers.reverse()
-    print(numbers)  # Output: [5, 1, 4, 1, 3]
-    ```
+### 2. **`all()`**
+Returns `True` if all elements in an iterable are true.
+```python
+print(all([True, True, False]))  # Output: False
+```
 
-### 3. **Dictionary Methods**
-- **`dict.get(key, default=None)`**: Returns the value for the specified key if the key is in the dictionary, otherwise returns the default value.
-    ```python
-    person = {"name": "Alice", "age": 25}
-    print(person.get("name"))  # Output: "Alice"
-    print(person.get("gender", "Not specified"))  # Output: "Not specified"
-    ```
-- **`dict.keys()`**: Returns a view object that displays a list of all the keys in the dictionary.
-    ```python
-    person = {"name": "Alice", "age": 25}
-    print(person.keys())  # Output: dict_keys(['name', 'age'])
-    ```
-- **`dict.values()`**: Returns a view object that displays a list of all the values in the dictionary.
-    ```python
-    person = {"name": "Alice", "age": 25}
-    print(person.values())  # Output: dict_values(['Alice', 25])
-    ```
-- **`dict.items()`**: Returns a view object that displays a list of dictionary's key-value tuple pairs.
-    ```python
-    person = {"name": "Alice", "age": 25}
-    print(person.items())  # Output: dict_items([('name', 'Alice'), ('age', 25)])
-    ```
-- **`dict.update(other_dict)`**: Updates the dictionary with elements from another dictionary object or from an iterable of key-value pairs.
-    ```python
-    person = {"name": "Alice", "age": 25}
-    update = {"age": 26, "city": "New York"}
-    person.update(update)
-    print(person)  # Output: {"name": "Alice", "age": 26, "city": "New York"}
-    ```
+### 3. **`any()`**
+Returns `True` if any element in an iterable is true.
+```python
+print(any([False, True, False]))  # Output: True
+```
 
-### 4. **Set Methods**
-- **`set.add(item)`**: Adds an item to the set.
-    ```python
-    fruits = {"apple", "banana"}
-    fruits.add("cherry")
-    print(fruits)  # Output: {'apple', 'banana', 'cherry'}
-    ```
-- **`set.remove(item)`**: Removes an item from the set. If the item is not found, it raises a KeyError.
-    ```python
-    fruits = {"apple", "banana", "cherry"}
-    fruits.remove("banana")
-    print(fruits)  # Output: {'apple', 'cherry'}
-    ```
-- **`set.union(other_set)`**: Returns a new set with all items from both sets.
-    ```python
-    set1 = {"apple", "banana"}
-    set2 = {"cherry", "banana"}
-    print(set1.union(set2))  # Output: {'apple', 'banana', 'cherry'}
-    ```
-- **`set.intersection(other_set)`**: Returns a new set containing only items that exist in both sets.
-    ```python
-    set1 = {"apple", "banana"}
-    set2 = {"banana", "cherry"}
-    print(set1.intersection(set2))  # Output: {'banana'}
-    ```
-- **`set.difference(other_set)`**: Returns a new set with items that are only in the first set and not in the second.
-    ```python
-    set1 = {"apple", "banana"}
-    set2 = {"banana", "cherry"}
-    print(set1.difference(set2))  # Output: {'apple'}
-    ```
+### 4. **`ascii()`**
+Returns a string containing a printable representation of an object.
+```python
+print(ascii("Python is π"))  # Output: 'Python is \u03c0'
+```
 
-### 5. **File Methods**
-- **`file.read(size=-1)`**: Reads the file’s content, if `size` is specified, it reads up to that many bytes/characters.
-    ```python
-    with open("example.txt", "r") as file:
-        content = file.read()
-        print(content)
-    ```
-- **`file.write(text)`**: Writes the specified text to the file.
-    ```python
-    with open("example.txt", "w") as file:
-        file.write("Hello, World!")
-    ```
-- **`file.readlines()`**: Reads all lines in a file and returns them as a list.
-    ```python
-    with open("example.txt", "r") as file:
-        lines = file.readlines()
-        print(lines)
-    ```
-- **`file.close()`**: Closes the opened file. (Using `with` statements automatically closes the file.)
-    ```python
-    file = open("example.txt", "r")
-    content = file.read()
-    file.close()
-    ```
-  
-These are some of the commonly used methods in Python, each associated with different data types such as strings, lists, dictionaries, sets, and files. Each method serves a specific purpose and helps in manipulating and working with the corresponding data type.
+### 5. **`bin()`**
+Converts an integer to a binary string.
+```python
+print(bin(10))  # Output: '0b1010'
+```
+
+### 6. **`bool()`**
+Converts a value to a Boolean.
+```python
+print(bool(0))  # Output: False
+```
+
+### 7. **`bytearray()`**
+Returns a `bytearray` object.
+```python
+ba = bytearray([65, 66, 67])
+print(ba)  # Output: bytearray(b'ABC')
+```
+
+### 8. **`bytes()`**
+Returns a `bytes` object.
+```python
+b = bytes([65, 66, 67])
+print(b)  # Output: b'ABC'
+```
+
+### 9. **`callable()`**
+Returns `True` if the object is callable.
+```python
+def func(): pass
+print(callable(func))  # Output: True
+```
+
+### 10. **`chr()`**
+Returns the string representing a character from its Unicode code.
+```python
+print(chr(65))  # Output: 'A'
+```
+
+### 11. **`classmethod()`**
+Transforms a method into a class method.
+```python
+class MyClass:
+    @classmethod
+    def my_classmethod(cls):
+        print("class method")
+
+MyClass.my_classmethod()  # Output: 'class method'
+```
+
+### 12. **`compile()`**
+Compiles source into a code object.
+```python
+code = compile('print(5)', '', 'exec')
+exec(code)  # Output: 5
+```
+
+### 13. **`complex()`**
+Creates a complex number.
+```python
+print(complex(1, 2))  # Output: (1+2j)
+```
+
+### 14. **`delattr()`**
+Deletes an attribute from an object.
+```python
+class MyClass:
+    x = 10
+
+delattr(MyClass, 'x')
+```
+
+### 15. **`dict()`**
+Creates a new dictionary.
+```python
+d = dict(key1='value1', key2='value2')
+print(d)  # Output: {'key1': 'value1', 'key2': 'value2'}
+```
+
+### 16. **`dir()`**
+Returns a list of attributes and methods of an object.
+```python
+print(dir([]))  # Output: List of methods and attributes for list objects
+```
+
+### 17. **`divmod()`**
+Returns the quotient and remainder when dividing two numbers.
+```python
+print(divmod(9, 4))  # Output: (2, 1)
+```
+
+### 18. **`enumerate()`**
+Returns an enumerate object.
+```python
+for index, value in enumerate(['a', 'b', 'c']):
+    print(index, value)
+# Output:
+# 0 a
+# 1 b
+# 2 c
+```
+
+### 19. **`eval()`**
+Evaluates a Python expression from a string-based input.
+```python
+print(eval('3 + 4'))  # Output: 7
+```
+
+### 20. **`exec()`**
+Executes Python code dynamically.
+```python
+exec("print('Hello World')")  # Output: Hello World
+```
+
+### 21. **`filter()`**
+Constructs an iterator from elements of an iterable for which a function returns true.
+```python
+result = filter(lambda x: x > 0, [-1, 0, 1, 2])
+print(list(result))  # Output: [1, 2]
+```
+
+### 22. **`float()`**
+Converts a value to a floating-point number.
+```python
+print(float('3.14'))  # Output: 3.14
+```
+
+### 23. **`format()`**
+Returns a formatted string.
+```python
+print(format(255, '02x'))  # Output: 'ff'
+```
+
+### 24. **`frozenset()`**
+Returns a frozenset object, an immutable set.
+```python
+fs = frozenset([1, 2, 3])
+print(fs)  # Output: frozenset({1, 2, 3})
+```
+
+### 25. **`getattr()`**
+Returns the value of a named attribute of an object.
+```python
+class MyClass:
+    x = 10
+
+obj = MyClass()
+print(getattr(obj, 'x'))  # Output: 10
+```
+
+### 26. **`globals()`**
+Returns a dictionary representing the current global symbol table.
+```python
+print(globals())  # Output: Dictionary of global variables
+```
+
+### 27. **`hasattr()`**
+Returns `True` if an object has a given attribute.
+```python
+class MyClass:
+    x = 10
+
+obj = MyClass()
+print(hasattr(obj, 'x'))  # Output: True
+```
+
+### 28. **`hash()`**
+Returns the hash value of an object.
+```python
+print(hash('hello'))  # Output: Hash value of 'hello'
+```
+
+### 29. **`help()`**
+Invokes the built-in help system.
+```python
+help(print)  # Displays help information for the print function
+```
+
+### 30. **`hex()`**
+Converts an integer to a hexadecimal string.
+```python
+print(hex(255))  # Output: '0xff'
+```
+
+### 31. **`id()`**
+Returns the identity (unique integer) of an object.
+```python
+print(id('hello'))  # Output: Identity of the object 'hello'
+```
+
+### 32. **`input()`**
+Reads a line from input, typically from the user.
+```python
+name = input("Enter your name: ")
+print(name)
+```
+
+### 33. **`int()`**
+Converts a value to an integer.
+```python
+print(int('10'))  # Output: 10
+```
+
+### 34. **`isinstance()`**
+Checks if an object is an instance of a class or a tuple of classes.
+```python
+print(isinstance(5, int))  # Output: True
+```
+
+### 35. **`issubclass()`**
+Checks if a class is a subclass of another class or a tuple of classes.
+```python
+class A: pass
+class B(A): pass
+
+print(issubclass(B, A))  # Output: True
+```
+
+### 36. **`iter()`**
+Returns an iterator object.
+```python
+my_list = [1, 2, 3]
+it = iter(my_list)
+print(next(it))  # Output: 1
+```
+
+### 37. **`len()`**
+Returns the length of an object.
+```python
+print(len([1, 2, 3]))  # Output: 3
+```
+
+### 38. **`list()`**
+Creates a new list.
+```python
+print(list('abc'))  # Output: ['a', 'b', 'c']
+```
+
+### 39. **`locals()`**
+Returns a dictionary representing the current local symbol table.
+```python
+def func():
+    x = 5
+    print(locals())
+
+func()  # Output: {'x': 5}
+```
+
+### 40. **`map()`**
+Applies a function to all items in an iterable and returns a map object.
+```python
+result = map(lambda x: x * 2, [1, 2, 3])
+print(list(result))  # Output: [2, 4, 6]
+```
+
+### 41. **`max()`**
+Returns the largest item in an iterable or the largest of two or more arguments.
+```python
+print(max(1, 2, 3))  # Output: 3
+```
+
+### 42. **`memoryview()`**
+Returns a memory view object of a specified object.
+```python
+byte_array = bytearray('abc', 'utf-8')
+mv = memoryview(byte_array)
+print(mv[0])  # Output: 97
+```
+
+### 43. **`min()`**
+Returns the smallest item in an iterable or the smallest of two or more arguments.
+```python
+print(min(1, 2, 3))  # Output: 1
+```
+
+### 44. **`next()`**
+Retrieves the next item from an iterator.
+```python
+it = iter([1, 2, 3])
+print(next(it))  # Output: 1
+```
+
+### 45. **`object()`**
+Creates a new object.
+```python
+obj = object()
+print(obj)  # Output: <object object at 0x...>
+```
+
+### 46. **`oct()`**
+Converts
+
+ an integer to an octal string.
+```python
+print(oct(8))  # Output: '0o10'
+```
+
+### 47. **`open()`**
+Opens a file and returns a corresponding file object.
+```python
+file = open('example.txt', 'r')
+print(file.read())
+file.close()
+```
+
+### 48. **`ord()`**
+Returns the Unicode code of a character.
+```python
+print(ord('A'))  # Output: 65
+```
+
+### 49. **`pow()`**
+Returns the value of a number raised to the power of another number.
+```python
+print(pow(2, 3))  # Output: 8
+```
+
+### 50. **`print()`**
+Prints the given object(s) to the console.
+```python
+print('Hello, World!')  # Output: Hello, World!
+```
+
+### 51. **`property()`**
+Returns a property attribute.
+```python
+class MyClass:
+    def __init__(self):
+        self._x = 0
+
+    def get_x(self):
+        return self._x
+
+    def set_x(self, value):
+        self._x = value
+
+    x = property(get_x, set_x)
+
+obj = MyClass()
+print(obj.x)  # Output: 0
+```
+
+### 52. **`range()`**
+Returns an immutable sequence of numbers.
+```python
+for i in range(3):
+    print(i)
+# Output:
+# 0
+# 1
+# 2
+```
+
+### 53. **`repr()`**
+Returns a string representation of an object.
+```python
+print(repr('hello'))  # Output: "'hello'"
+```
+
+### 54. **`reversed()`**
+Returns a reversed iterator.
+```python
+for char in reversed('hello'):
+    print(char, end='')  # Output: 'olleh'
+```
+
+### 55. **`round()`**
+Returns a floating-point number rounded to a specified number of decimals.
+```python
+print(round(3.14159, 2))  # Output: 3.14
+```
+
+### 56. **`set()`**
+Creates a new set.
+```python
+print(set([1, 2, 3]))  # Output: {1, 2, 3}
+```
+
+### 57. **`setattr()`**
+Sets the value of a named attribute of an object.
+```python
+class MyClass:
+    pass
+
+obj = MyClass()
+setattr(obj, 'x', 10)
+print(obj.x)  # Output: 10
+```
+
+### 58. **`slice()`**
+Returns a slice object representing a set of indices.
+```python
+s = slice(1, 3)
+print([1, 2, 3, 4][s])  # Output: [2, 3]
+```
+
+### 59. **`sorted()`**
+Returns a new sorted list from the items in an iterable.
+```python
+print(sorted([3, 1, 2]))  # Output: [1, 2, 3]
+```
+
+### 60. **`staticmethod()`**
+Transforms a method into a static method.
+```python
+class MyClass:
+    @staticmethod
+    def my_staticmethod():
+        print("static method")
+
+MyClass.my_staticmethod()  # Output: 'static method'
+```
+
+### 61. **`str()`**
+Creates a new string object.
+```python
+print(str(10))  # Output: '10'
+```
+
+### 62. **`sum()`**
+Returns the sum of a sequence of numbers.
+```python
+print(sum([1, 2, 3]))  # Output: 6
+```
+
+### 63. **`super()`**
+Returns a proxy object that delegates method calls to a parent or sibling class.
+```python
+class Parent:
+    def __init__(self):
+        print("Parent")
+
+class Child(Parent):
+    def __init__(self):
+        super().__init__()
+        print("Child")
+
+child = Child()
+# Output:
+# Parent
+# Child
+```
+
+### 64. **`tuple()`**
+Creates a new tuple.
+```python
+print(tuple([1, 2, 3]))  # Output: (1, 2, 3)
+```
+
+### 65. **`type()`**
+Returns the type of an object, or creates a new type object.
+```python
+print(type(5))  # Output: <class 'int'>
+```
+
+### 66. **`vars()`**
+Returns the `__dict__` attribute of an object.
+```python
+class MyClass:
+    x = 10
+
+obj = MyClass()
+print(vars(obj))  # Output: {'x': 10}
+```
+
+### 67. **`zip()`**
+Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences.
+```python
+list1 = [1, 2, 3]
+list2 = ['a', 'b', 'c']
+print(list(zip(list1, list2)))  # Output: [(1, 'a'), (2, 'b'), (3, 'c')]
+```
+
+### 68. **`__import__()`**
+Dynamically imports a module.
+```python
+math = __import__('math')
+print(math.sqrt(4))  # Output: 2.0
+```
+
+These functions are built into the Python interpreter and are always available without the need to import any additional modules. Each function serves a specific purpose and is designed to handle a variety of tasks.
